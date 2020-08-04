@@ -2,60 +2,58 @@ import { HTMLUtilities } from "./HTMLUtilities.js";
 import { getData } from './Repository.js';
 
 
-class SelectionBar {
+export class SelectionBar {
   constructor(menu) {
     this.menu = menu;
     this.utilities = new HTMLUtilities();
   }
 
   createOptions() {
-    const header = document.querySelector('#header');
-    header.innerHTML = "";
-    const parentContainer = this.utilities.insertComponent(header)
+    const header = s5('header', {'class':"header"}).html("");
+    const parentContainer = this.utilities.insertComponent(header);
 
-    const div = document.createElement("div");
-    div.classList.add("title");
+    const div = s5("<div>", {"class":"title"});
     const containerTitle = this.utilities.insertComponent(div);
 
     const imgHTML = this.utilities.createIcon(this.menu.icon);
     containerTitle(imgHTML);
 
-    const titleTag = document.createElement("h1");
-    titleTag.textContent = this.menu.title;
+    const titleTag = s5("<h1>").insert(document.createTextNode(this.menu.title));
     containerTitle(titleTag);
     
-    const nav = document.createElement("div");
-    nav.id = "optionsContainer";
+    const nav = s5("<div>", {"id":"optionsContainer"});
+    
+    parentContainer(div);
+    parentContainer(nav);
     /*const options = this.menu.options.map(this.createOptionLinks);
     options[0].classList.add("selected");
     options[0].click();
-    
     const containerOptions = this.utilities.insertComponent(nav);
     options.forEach(containerOptions);*/
-
-    header.classList.add('header');
-    parentContainer(div);
-    parentContainer(nav);
   }
 
   createOptionLinks(option) {
-    const tagA = document.createElement("a");
-    tagA.setAttribute("href", "#");
-    tagA.setAttribute("class", "option-name");
-    tagA.setAttribute("data-index", `${option.option_id}`);
-    tagA.innerHTML = option.optionName;
+    return s5("<a>", { 'href' : "#", 'class' : "option-name", "data-index":`${option.option_id}`})
+                  .insert(document.createTextNode(option.optionName))
+                  .addEvent("click", function(e){
+                    let index = e.target.dataset.index;
+                    let current = s5(".options .option-name");
+                    current.forEach((value, index) => {
+                        value.classList.remove("selected");
+                    });
+                    this.classList.add("selected");
+                    console.log({"option index: ": index});
+                  });
+    /*tagA.innerHTML = option.optionName;
     tagA.addEventListener("click", function(e){
       let index = e.target.dataset.index;
-      let current = document.querySelectorAll(".options .option-name");
+      let current = s5(".options .option-name");
       current.forEach((value, index) => {
           value.classList.remove("selected");
       });
       this.classList.add("selected");
       console.log({"option index: ": index});
     });
-    return tagA;
+    return tagA;*/
   }
 }
-
-
-export { SelectionBar };

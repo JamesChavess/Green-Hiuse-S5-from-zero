@@ -27,14 +27,6 @@
             {
                 "option_id":5,
                 "optionName": "PHP"
-            },
-            {
-                "option_id":6,
-                "optionName": "Option 6"
-            },
-            {
-                "option_id":7,
-                "optionName": "Option 7"
             }
         ]
     },
