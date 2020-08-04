@@ -20,7 +20,7 @@ export class NavMenu {
   }
 
   createOptions(options) {
-    this.html("")
+    this.container.innerHTML = "";
     const funcionInsertarMenu = this.utilities.insertComponent(this.container);
 
     options.links.forEach((option) => {
@@ -45,7 +45,7 @@ export class NavMenu {
         value.classList.remove("active");
       });
       e.currentTarget.classList.add("active");
-      Sinco.get('welcome').style.display = "none";
+      document.getElementById('welcome').style.display = "none";
       switch (currentOption) {
         case "Cursos":
           console.log('cursos selected');

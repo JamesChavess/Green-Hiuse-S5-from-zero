@@ -10,10 +10,6 @@
     grid-column-end: 3;
 }
 
-#links {
-    display:grid;
-}
-
 .logo{
     height: 100%;
     width: auto;
@@ -31,7 +27,6 @@
     border-radius: 5px;
     outline: none;
     transition: all 0.2s;
-    
 }
 
 .search input:focus{
@@ -43,7 +38,6 @@
     top: 6px;
     left: 8px;
     color: #A9A9A9;
-    display: grid;
 }
 
 .fa-angle-down{
