@@ -33,7 +33,7 @@ export class Courses {
                         s5(".option-name.selected").forEach((value, index) => {
                             value.classList.remove("selected");
                         });
-                        e.target.classList.add("selected");
+                        e.currentTarget.classList.add("selected");
                         console.log({"option index: ": index});
                         this.renderCourse(index-1);
                     });
@@ -109,17 +109,20 @@ export class Courses {
             <a id="prevBtn" href="#"><i class="fas fa-chevron-left"></i> Leccion anterior</a>
             <a id="nextBtn" href="#">Leccion siguiente <i class="fas fa-chevron-right"></i></nav>`);
 
-            //to fix
-            /*const prevBtn = s5("prevBtn").addEvent("click", function () {
-            let activeItem = s5("open");
-            let arrowDown = s5("down");
+           
+            const prevBtn = s5("prevBtn").addEvent("click", function () {
+            let activeItem = document.querySelector.querySelector(".open");
+            console.log(activeItem);
+            let arrowDown = document.querySelector(".down");
+            console.log(arrowDown);
             let prev = activeItem.previousSibling;
+            console.log(prev);
 
-            if (document.body.contains(activeItem) && document.body.contains(arrowDown) && 
-                document.body.contains(prev) && prev.classList.contains('panel')) {
-                    lesson.innerHTML = "";
+            if ((activeItem) && (arrowDown) && 
+                (prev) && prev.classList.contains('panel')) {
+                    lesson.html("");
                     let lessonTitle = s5('<h1>',{'class':"lessonTitle"}).html(`${prev.innerText}`);
-                    lesson.appendChild(lessonTitle);
+                    lesson.insert(lessonTitle);
                     activeItem.classList.remove("open");
                     arrowDown.classList.remove("down");
                     console.log({'selected lesson' : activeItem});
@@ -149,13 +152,16 @@ export class Courses {
                         }
                     });
                 }
-            });
+                else{
+                    console.log("Condición == false");
+                }
+            })
 
             //to fix
             const nextBtn = document.getElementById("nextBtn");
             nextBtn.addEventListener("click", function () {
-                let activeItem = document.querySelector(".open");
-                let arrowDown = document.querySelector(".down");
+                let activeItem = document.querySelectordocument.querySelector(".open");
+                let arrowDown = document.querySelectordocument.querySelector(".down");
                 let next = activeItem.nextSibling;
 
                 if (document.body.contains(activeItem) && document.body.contains(arrowDown) && document.body.contains(next)) {
@@ -192,7 +198,7 @@ export class Courses {
                     }
                     });
                 }
-            });*/
+            });
 
             const lessonNav = s5("lessonNav");
             course.content.forEach( (item, index, array) => {

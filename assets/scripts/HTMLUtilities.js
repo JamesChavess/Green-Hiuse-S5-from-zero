@@ -9,9 +9,7 @@ class HTMLUtilities {
     }
 
     createIcon = (icon) => {
-        const tagImage = document.createElement('img');
-        tagImage.setAttribute('src', `img/${icon}`);
-        tagImage.setAttribute('alt', 'logo');
+        const tagImage = s5('<img>',{'src':`img/${icon}`,'alt':"logo"});
         return tagImage;
     }
 }
