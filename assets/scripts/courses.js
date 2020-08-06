@@ -111,7 +111,8 @@ export class Courses {
 
            
             const prevBtn = s5("prevBtn").addEvent("click", function () {
-            let activeItem = document.querySelector.querySelector(".open");
+
+            let activeItem = document.querySelector(".open");
             console.log(activeItem);
             let arrowDown = document.querySelector(".down");
             console.log(arrowDown);
@@ -160,8 +161,8 @@ export class Courses {
             //to fix
             const nextBtn = document.getElementById("nextBtn");
             nextBtn.addEventListener("click", function () {
-                let activeItem = document.querySelectordocument.querySelector(".open");
-                let arrowDown = document.querySelectordocument.querySelector(".down");
+                let activeItem = document.querySelector(".open");
+                let arrowDown =document.querySelector(".down");
                 let next = activeItem.nextSibling;
 
                 if (document.body.contains(activeItem) && document.body.contains(arrowDown) && document.body.contains(next)) {
