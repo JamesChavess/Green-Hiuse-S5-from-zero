@@ -2,6 +2,7 @@ import { getData } from "./Repository.js";
 import { HTMLUtilities } from "./HTMLUtilities.js";
 import { SelectionBar } from "./selectionBar.js";
 import { Courses } from './courses.js';
+import { Katas } from './Katas.js';
 
 
 export class NavMenu {
@@ -15,7 +16,6 @@ export class NavMenu {
 
     getData("./JSON/menu.json").then((response) => {
       this.createOptions(response);
-      console.log(response);
     });
   }
 
@@ -37,58 +37,30 @@ export class NavMenu {
     ])
     .addEvent("click", (e) => {
       let currentOption = e.currentTarget.dataset.option;
-      console.log(currentOption);
-      /*const selectionBar = new SelectionBar(menu);
-      selectionBar.createOptions();*/
       let current = s5("li.menu-link");
+
       current.forEach((value, index) => {
         value.classList.remove("active");
       });
       e.currentTarget.classList.add("active");
       s5('welcome').style.display = "none";
+
       switch (currentOption) {
         case "Cursos":
-          console.log('cursos selected');
           this.Courses = new Courses(menu);
-          this.Courses.mainPage();
+          this.Courses.init();
           break;
           
         case "Katas":
-          console.log('katas selected');
+          this.Katas = new Katas(menu);
+          this.Katas.init();
           break;
 
-          case "Juegos":
-          console.log('juegos selected');
-          break;
-
-          case "FAQ":
-          console.log('FAQ selected');
-          break;
-
-          case "Recursos":
-          console.log('Recursos selected');
-          break;
-
-          case "Glossario":
-          console.log('Glossarioselected');
-          break;
-
-          case "Proyectos":
-          console.log('Proyectos selected');
-          break;
-
-          case "WorkOuts":
-          console.log('WorkOuts selected');
-          break;
-
-          case "Semillero Bulletin":
-          console.log('Semillero Bulletin selected');
-          break;
-          
         default:
+          s5("contentContainer").html("");
+          s5('welcome').style.display = "block";
           break;
       }
-     
     });
   }
 }

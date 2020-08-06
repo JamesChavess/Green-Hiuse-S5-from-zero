@@ -44,16 +44,6 @@ export class SelectionBar {
                     this.classList.add("selected");
                     console.log({"option index: ": index});
                   });
-    /*tagA.innerHTML = option.optionName;
-    tagA.addEventListener("click", function(e){
-      let index = e.target.dataset.index;
-      let current = s5(".options .option-name");
-      current.forEach((value, index) => {
-          value.classList.remove("selected");
-      });
-      this.classList.add("selected");
-      console.log({"option index: ": index});
-    });
-    return tagA;*/
+    
   }
 }

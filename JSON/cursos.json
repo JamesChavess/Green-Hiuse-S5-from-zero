@@ -2,20 +2,20 @@
     "availableCourses": [
         {
             "name": "Java",
-            "image": "java.png",
             "link": "http://",
             "likes": 71452,
             "comments": 57,
             "content": [
-                {
+                { 
                     "item_id": 1,
-                    "image":"java.png",
+                    "icon":"java.png",
                     "contentName": "Introducción",
                     "parent_id": null
                 }, 
                 {
                     "item_id": 2,
                     "contentName": "Objetivos del curso",
+                    "paragraph" : "Java es un lenguaje de programación de propósito general que está basado en clases , orientado a objetos y diseñado para tener la menor cantidad posible de dependencias de implementación .",
                     "parent_id": 1
                    
                 },
@@ -105,7 +105,6 @@
         },
         {
             "name" : "JavaScript",
-            "image": "javaScript.jpg",
             "link": "http://",
             "likes": 68865,
             "comments": 116,
@@ -122,6 +121,7 @@
             "content": [ 
                 {
                     "item_id": 1,
+                    "icon":"javaScript.png",
                     "contentName": "Introducción",
                     "parent_id": null
                 }, 
@@ -129,7 +129,7 @@
                     "item_id": 2,
                     "contentName": "Objetivos",
                     "parent_id": 1,
-                    "paragraph": "JavaScript es un lenguaje de programacion multiparadigma con uso comun para el desarrollo web.Como el lenguaje de programacion mas popular del mundo. Desde principiantes hasta verdaderos expertos cualquiera puede encontrar excelentes tutoriales y otros recursos para aprender y mejorar sus habilidades de programacion de JavaScript Y, siempre puede pedir ayuda a algunos de los ingenieros experimentaciones de JavaScript y a los mienbros de nuestra comunidad."
+                    "paragraph": "Ser todo un master Jedi programando con JavaScript"
                 },  
                 {
                     "item_id": 3,
@@ -199,22 +199,16 @@
         },
         {
             "name": "React",
-            "image": "react.jpg",
             "link": "http://",
             "likes": 53848,
             "comments": 30,
             "content": [
                 {
                     "item_id": 1,
+                    "logo":"react.png",
                     "contentName": "Introducción",
                     "parent_id": null
                     
-                }, 
-                {
-                    "item_id": 2,
-                    "contentName": "logoa os",
-                    "parent_id": 1,
-                    "img": "../img/react.png "
                 }, 
                 {
                     "item_id": 3,
@@ -260,13 +254,13 @@
         }, 
         {
             "name": "Python",
-            "image": "python.png",
             "link": "http://",
             "likes": 66641,
             "comments": 57,
             "content": [
                 {
                     "item_id": 1,
+                    "logo":"python.png",
                     "contentName": "Introducción",
                     "parent_id": null
                 },
@@ -274,10 +268,11 @@
                     "item_id": 2,
                     "contentName": "Objetivos",
                     "parent_id": 1,
-                    "paragraph": ""
+                    "paragraph": "aprender python desde los fundamentos hasta realizar una aplicacion con base en este lenguaje de programación"
                 }, 
                     
                 {
+                    "item_id": 3,
                     "contentName": "Acerca de Python",
                     "parent_id": 1,
                     "paragraph": "Python es un lenguaje de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código. ​ Se trata de un lenguaje de programación multiparadigma, ya que soporta orientación a objetos, programación imperativa y, en menor medida, programación funcional."
@@ -285,6 +280,7 @@
                 {
                     
                     "item_id": 4,
+                    "contentName": "Historia",
                     "parent_id": 1,
                     "paragraph": "La historia del lenguaje programación Python se remonta hacia finales de los 80s y principio de los 90s1​, su implementación comenzó en diciembre de 19892​ cuando en Navidad Guido Van Rossum que trabajaba en el (CWI) (un centro de investigación holandés de carácter oficial que, entre otras cosas, actualmente alberga la oficina central del W3C) decidió empezar el proyecto como un pasatiempo dándole continuidad al lenguaje de programación ABC del que había formado parte del equipo de desarrollo en el CWI,3​ dicho lenguaje se enfocaba en ser fácil de usar y aprender manteniendo potencia en su desempeño pero el hardware disponible en la época de su creación hacía difícil su uso y el proyecto no trascendió como se esperaba. Van Rossum es por tanto el autor principal de Python y continúa ejerciendo un rol central decidiendo la dirección del lenguaje, en la comunidad de Python se le conoce como Benevolente Dictador Vitalicio (en inglés: Benevolent Dictator for Life, BDFL). El nombre Python viene dado por la afición de Van Rossum al grupo Monty Python."
                 },
@@ -347,13 +343,13 @@
         },
         {
             "name": "PHP",
-            "image": "php.png",
             "link": "http://",
             "likes": 56456,
             "comments": 60,
             "content": [
                 {
                     "item_id": 1,
+                    "logo":"php.png",
                     "contentName": "Introducción",
                     "parent_id": null
                 }, 

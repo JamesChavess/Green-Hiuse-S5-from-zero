@@ -70,6 +70,7 @@
 .accordionIndex{
   color: gray;
   text-decoration: none;
+  padding: 10px 0;
 }
  
 .accordionIndex:hover{
