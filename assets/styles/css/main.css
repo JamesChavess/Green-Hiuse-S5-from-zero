@@ -148,4 +148,14 @@ section {
 }
 .highLight{
   background-color: rgba(255, 255, 0, 0.80);
+  transition: ease-in;
+  transition: ease-out;
+  transition-duration: 3s;
+}
+
+.articleLogo{
+  width: 300px;
+  height: 300px;
+  padding-top: 20px;
+  margin: auto;
 }

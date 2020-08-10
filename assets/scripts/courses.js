@@ -78,6 +78,7 @@ export class Courses {
 
             s5("<section>",{'class':"contentCourse", 'id':"contentCourses"})
         ]);
+
         s5("#searchLesson")[0].addEvent("keyup", ()=>{
             let input = s5("#searchLesson")[0].value
             console.log(input);
@@ -87,11 +88,56 @@ export class Courses {
                 console.log(content[i].firstChild.innerText);
                 if (content[i].innerHTML.toLowerCase().includes(input)) {
                     console.log(content[i]);
+                    content[i].classList.add("open");
+                    content[i].classList.add("down");
                     content[i].click();
                     content[i].classList.add("highLight");
+                    let paragraphs = document.getElementsByTagName('p');
+                    console.log(paragraphs);
+                    content[i].classList.add("highLight")
+                    setTimeout(function(){ content[i].classList.remove("highLight"); }, 5000);
+                    let paragraphsSearch = paragraphs.filter(paragraph => paragraph.innerHTML.includes(input));
+                    console.log(paragraphsSearch);
+                    paragraphsSearch.classList.add("highLight")
+                    setTimeout(function(){ content[i].classList.remove("highLight"); }, 5000);
                 }
             }
         });
+        /*const searchBar = document.querySelector('#searchBar');
+        const search = document.querySelector('#search');
+        const resultado = document.querySelector('#resultado');
+
+        const filtrar = () => {
+
+            resultado.innerHTML ='';
+        
+            const searchBar = search.value.toLowerCase()
+            for(let contents of content){
+                let contentName = contents.contentName.toLowerCase();
+                if(contentName.indexOf(searchBar) !== -1){
+                    resultado.innerHTML += `
+                    <li>${contents.contentName} </li>
+                `
+                }
+            }
+            if(resultado.innerHTML === ''){
+                resultado.innerHTML += `
+                <li> Busqueda no encontrada...</li>
+                `
+            }
+        
+        }
+        
+        search.addEventListener('click', filtrar);
+        searchBar.addEventListener('keyup',filtrar);
+        
+        filtrar();
+        
+        */
+        
+
+
+
 
 
         getData("./JSON/cursos.json").then((response) => {
@@ -105,9 +151,10 @@ export class Courses {
 
             this.createTableOfContents(course.content);
             s5("nextBtn").addEvent("click", () => {
-                const activeItem = s5(".panel.open");
+                const activeItem = s5(".panel.open")[0];
                 const arrowDown = s5(".down")[0];
                 const next = activeItem.nextSibling;
+                console.log(next);
                 if (activeItem && arrowDown && next && next.classList.contains('panel')) {
                     activeItem.classList.remove("open");
                     arrowDown.classList.remove("down");
@@ -121,6 +168,7 @@ export class Courses {
                 const activeItem = s5(".panel.open")[0];
                 const arrowDown = s5(".down")[0];
                 const prev = activeItem.previousSibling;
+                console.log(prev);
                 if (activeItem && arrowDown && prev && prev.classList.contains('panel')) {
                     activeItem.classList.remove("open");
                     arrowDown.classList.remove("down");
@@ -132,6 +180,7 @@ export class Courses {
         });
     }
 
+  
 
     createTableOfContents(contents){
         contents.forEach( (item, index, array) => {
@@ -172,22 +221,22 @@ export class Courses {
     }
     
     createArticle(parent_id, parent_title, articles){
-        s5('#lessonContainer').html("").insert([
+        s5('#lessonContainer').html("").insert([ 
+            s5("<img>",{"class": "articleLogo", "src": articles[0].icon}),
             s5('<h1>', {"class":"lessonTitle"}).html(parent_title),
             articles
                 .filter(element => element.parent_id == parent_id)
                 .map(element =>{
-                    let logo = this.HTMLUtilities.createIcon(element.icon);
-                    console.log(element.icon);
-                    let _logo = document.createElement("div");
-                    _logo.setAttribute("id","logo");
-                    _logo.appendChild(logo);
                     let article = s5("<article>")
                                     .insert([
                                         s5("<h2>", {"id":`${element.contentName}`})
                                             .html(`${element.contentName}`),
-                                            s5("<p>").html(`${element.paragraph}`)
+                                            s5("<p>").html(`${element.paragraph}`),
+                                            //s5("<img>", {"src": articles[0].icon},
+                                        
+                                            
                                     ]);
+                                    
                     let cName = element.contentName.toLowerCase(); 
                     if (cName.includes("objetivo")) {
                         article.classList.add("goalsCourse");
@@ -195,8 +244,9 @@ export class Courses {
                         article.classList.add("contentCourseArticle");
                     }
                     return article;
+                    
                 })
-        ]);
+        ]); 
     }
 
      //------------------search bar functionality on porgress here ------------------

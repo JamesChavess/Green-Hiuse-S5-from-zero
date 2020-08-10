@@ -8,8 +8,8 @@
             "content": [
                 { 
                     "item_id": 1,
-                    "icon":"java.png",
                     "contentName": "Introducción",
+                    "icon":"./img/logoGH.svg",
                     "parent_id": null
                 }, 
                 {
@@ -121,7 +121,7 @@
             "content": [ 
                 {
                     "item_id": 1,
-                    "icon":"javaScript.png",
+                    "icon":"./img/student.svg",
                     "contentName": "Introducción",
                     "parent_id": null
                 }, 
@@ -205,7 +205,7 @@
             "content": [
                 {
                     "item_id": 1,
-                    "logo":"react.png",
+                    "icon":"./img/guitar-pick.svg",
                     "contentName": "Introducción",
                     "parent_id": null
                     
@@ -260,7 +260,7 @@
             "content": [
                 {
                     "item_id": 1,
-                    "logo":"python.png",
+                    "icon":"./img/book.svg",
                     "contentName": "Introducción",
                     "parent_id": null
                 },
@@ -349,7 +349,7 @@
             "content": [
                 {
                     "item_id": 1,
-                    "logo":"php.png",
+                    "icon":"./img/config.svg",
                     "contentName": "Introducción",
                     "parent_id": null
                 }, 
