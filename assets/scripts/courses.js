@@ -80,8 +80,7 @@ export class Courses {
         ]);
 
         s5("#searchLesson")[0].addEvent("keyup", (e)=>{
-            let panels = document.getElementsByClassName('panel'); //undefined
-            console.log(panels);
+            const panels = document.getElementsByClassName('panel');
             const form = s5('.searchContent').addEvent('submit', e =>{e.preventDefault()});
             for (let i = 0; i < panels.length; i++) {
                 panels[i].firstChild.firstChild.classList.add("down");
@@ -89,44 +88,31 @@ export class Courses {
             }
             
             let input = s5("#searchLesson")[0].value
-            console.log(input);
             input = input.toLowerCase();
             const content = document.getElementsByClassName('accordionIndex');
             for (let i = 0; i < content.length; i++) {
-                
                 if(input){
-                    if (!content[i].innerHTML.toLowerCase().includes(input)) {
-                        content[i].style.display = "none";
-                    }
-                    else{
-                        console.log(content[i]);
+                    if (content[i].innerHTML.toLowerCase().includes(input)) {
+                        content[i].style.display = "block";
                         content[i].classList.add("highLight");
                         setTimeout(function(){content[i].classList.remove("highLight");}, 2000);
-                        content[i].style.display = "block";
                         content[i].parentNode.previousSibling.click();
                         content[i].click();
-                        /*
-                            content[i].classList.add("open");
-                            content[i].classList.add("down");
-                            let paragraphs = document.getElementsByTagName('p');
-                            console.log(paragraphs);
-                            content[i].classList.add("highLight")
-                            setTimeout(function(){ content[i].classList.remove("highLight"); }, 5000);
-                            let paragraphsSearch = paragraphs.filter(paragraph => paragraph.innerHTML.includes(input));
-                            console.log(paragraphsSearch);
-                            paragraphsSearch.classList.add("highLight")
-                       */
+                    }
+                    else{
+                        content[i].style.display = "none";
                     }
                 }
                 else{
+                    const open = s5(".open");
+                    const down = s5(".down");
+                    down.forEach(value => {value.classList.remove("down")});
+                    open.forEach(value => {value.classList.remove("open")});
                     content[i].style.display = "block";
+                    content[0].parentNode.previousSibling.click();
                 }
             }
         });
-        
-
-
-
 
 
         getData("./JSON/cursos.json").then((response) => {
@@ -238,24 +224,4 @@ export class Courses {
         ]); 
     }
 
-     //------------------search bar functionality on porgress here ------------------
-     /*searchContent() {
-        s5("#searchLesson").addEvent("keyUp", () => {
-            let input = document.getElementById('searchLesson').value
-            console.log(input);
-            input = input.toLowerCase();
-            let content = document.getElementsByTagName('h2');
-    
-            for (i = 0; i < content.length; i++) {
-                if (!content[i].innerHTML.toLowerCase().includes(input)) {
-                    content[i].style.display = "none";
-                }
-                else {
-                    content[i].style.display = "list-item";
-                }
-            }
-        });
-    } */
-    
-    //------------search bar functionality on porgress here ----------------------------//
-}
+} 

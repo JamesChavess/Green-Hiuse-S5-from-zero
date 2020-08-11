@@ -34,3 +34,4 @@ export class FAQ {
             options.forEach(containerOptions);
     }
 }
+//export {FAQ};

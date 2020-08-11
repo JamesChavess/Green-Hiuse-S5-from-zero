@@ -2,7 +2,7 @@ import { getData } from './Repository.js';
 import { HTMLUtilities } from './HTMLUtilities.js';
 import { SelectionBar } from './selectionBar.js';
 
-export class Juegos {
+export class Proyectos {
     constructor(menu) {
         this.menu = menu;
         this.SelectionBar = new SelectionBar(menu);
@@ -11,9 +11,9 @@ export class Juegos {
 
     init(){
         s5("contentContainer").html("");
-        this.createJuegosOptions();
+        this.createProyectosOptions();
     }
-    createJuegosOptions() {
+    createProyectosOptions() {
         this.SelectionBar.createOptions();
         const options = this.menu.options.map(option => {
                 return s5("<a>",{"href" : "#", "class": "option-name", "data-index": `${option.option_id}`})
@@ -24,7 +24,7 @@ export class Juegos {
                                 value.classList.remove("selected");
                             });
                             e.currentTarget.classList.add("selected");
-                            s5("contentContainer").html(`<img src="img/Juegos_mainPage.png" alt="Juegos main page">`);
+                            s5("contentContainer").html(`<img src="img/Proyectos_mainPage.png" alt="Proyectos main page">`);
                         });
             });
             options[0].classList.add("selected");
@@ -34,3 +34,4 @@ export class Juegos {
             options.forEach(containerOptions);
     }
 }
+//export {Proyectos};
