@@ -74,7 +74,7 @@ export class Courses {
         contentContainer.insert([
             s5("<aside>",{'class':"accordion"}).html(`<div class="accordionContainer">
             <div id="accordion"><form class="searchContent"><span class="fas fa-search"></span>
-            <input id="searchLesson" type="text" name="keyword"></form></div></div>`), 
+            <input id="searchLesson" type="text" name="keyword placeholder="buscar.."></form></div></div>`), 
 
             s5("<section>",{'class':"contentCourse", 'id':"contentCourses"})
         ]);
@@ -95,7 +95,10 @@ export class Courses {
             for (let i = 0; i < content.length; i++) {
                 
                 if(input){
-                    if (content[i].innerHTML.toLowerCase().includes(input)) {
+                    if (!content[i].innerHTML.toLowerCase().includes(input)) {
+                        content[i].style.display = "none";
+                    }
+                    else{
                         console.log(content[i]);
                         content[i].classList.add("highLight");
                         setTimeout(function(){content[i].classList.remove("highLight");}, 2000);
@@ -114,12 +117,8 @@ export class Courses {
                             paragraphsSearch.classList.add("highLight")
                        */
                     }
-                    else{
-                        content[i].style.display = "none";
-                    }
                 }
                 else{
-                    content[i].parentNode.previousSibling.click();
                     content[i].style.display = "block";
                 }
             }
