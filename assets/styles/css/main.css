@@ -147,10 +147,10 @@ section {
   width: 100%;
 }
 .highLight{
-  background-color: rgba(255, 255, 0, 0.80);
+  background-color: rgba(255, 255, 23, 0.733);
   transition: ease-in;
-  transition: ease-out;
-  transition-duration: 3s;
+  transition: ease-out ;
+  transition-duration: 2s;
 }
 
 .articleLogo{

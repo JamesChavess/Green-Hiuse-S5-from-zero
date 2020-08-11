@@ -349,7 +349,7 @@
             "content": [
                 {
                     "item_id": 1,
-                    "icon":"./img/config.svg",
+                    "icon":"./img/fotoPerfil.svg",
                     "contentName": "Introducción",
                     "parent_id": null
                 }, 

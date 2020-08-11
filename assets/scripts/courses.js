@@ -79,61 +79,51 @@ export class Courses {
             s5("<section>",{'class':"contentCourse", 'id':"contentCourses"})
         ]);
 
-        s5("#searchLesson")[0].addEvent("keyup", ()=>{
+        s5("#searchLesson")[0].addEvent("keyup", (e)=>{
+            let panels = document.getElementsByClassName('panel'); //undefined
+            console.log(panels);
+            const form = s5('.searchContent').addEvent('submit', e =>{e.preventDefault()});
+            for (let i = 0; i < panels.length; i++) {
+                panels[i].firstChild.firstChild.classList.add("down");
+                panels[i].classList.add("open");
+            }
+            
             let input = s5("#searchLesson")[0].value
             console.log(input);
             input = input.toLowerCase();
-            let content = document.getElementsByClassName('accordionIndex');
+            const content = document.getElementsByClassName('accordionIndex');
             for (let i = 0; i < content.length; i++) {
-                console.log(content[i].firstChild.innerText);
-                if (content[i].innerHTML.toLowerCase().includes(input)) {
-                    console.log(content[i]);
-                    content[i].classList.add("open");
-                    content[i].classList.add("down");
-                    content[i].click();
-                    content[i].classList.add("highLight");
-                    let paragraphs = document.getElementsByTagName('p');
-                    console.log(paragraphs);
-                    content[i].classList.add("highLight")
-                    setTimeout(function(){ content[i].classList.remove("highLight"); }, 5000);
-                    let paragraphsSearch = paragraphs.filter(paragraph => paragraph.innerHTML.includes(input));
-                    console.log(paragraphsSearch);
-                    paragraphsSearch.classList.add("highLight")
-                    setTimeout(function(){ content[i].classList.remove("highLight"); }, 5000);
+                
+                if(input){
+                    if (content[i].innerHTML.toLowerCase().includes(input)) {
+                        console.log(content[i]);
+                        content[i].classList.add("highLight");
+                        setTimeout(function(){content[i].classList.remove("highLight");}, 2000);
+                        content[i].style.display = "block";
+                        content[i].parentNode.previousSibling.click();
+                        content[i].click();
+                        /*
+                            content[i].classList.add("open");
+                            content[i].classList.add("down");
+                            let paragraphs = document.getElementsByTagName('p');
+                            console.log(paragraphs);
+                            content[i].classList.add("highLight")
+                            setTimeout(function(){ content[i].classList.remove("highLight"); }, 5000);
+                            let paragraphsSearch = paragraphs.filter(paragraph => paragraph.innerHTML.includes(input));
+                            console.log(paragraphsSearch);
+                            paragraphsSearch.classList.add("highLight")
+                       */
+                    }
+                    else{
+                        content[i].style.display = "none";
+                    }
+                }
+                else{
+                    content[i].parentNode.previousSibling.click();
+                    content[i].style.display = "block";
                 }
             }
         });
-        /*const searchBar = document.querySelector('#searchBar');
-        const search = document.querySelector('#search');
-        const resultado = document.querySelector('#resultado');
-
-        const filtrar = () => {
-
-            resultado.innerHTML ='';
-        
-            const searchBar = search.value.toLowerCase()
-            for(let contents of content){
-                let contentName = contents.contentName.toLowerCase();
-                if(contentName.indexOf(searchBar) !== -1){
-                    resultado.innerHTML += `
-                    <li>${contents.contentName} </li>
-                `
-                }
-            }
-            if(resultado.innerHTML === ''){
-                resultado.innerHTML += `
-                <li> Busqueda no encontrada...</li>
-                `
-            }
-        
-        }
-        
-        search.addEventListener('click', filtrar);
-        searchBar.addEventListener('keyup',filtrar);
-        
-        filtrar();
-        
-        */
         
 
 
